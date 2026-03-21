@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Prime Rubber UK</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        .page-header { background: #f8fafc; padding: 60px 0; text-align: center; border-bottom: 1px solid #eee; }
+        .page-header h1 { font-size: 3rem; font-weight: 900; color: #1e293b; }
+        .contact-wrap { padding: 80px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .contact-form { background: #fff; padding: 40px; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 700; margin-bottom: 8px; color: #1e293b; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; }
+        .submit-btn { background: #059669; color: #fff; border: none; padding: 15px 30px; border-radius: 6px; font-weight: 800; cursor: pointer; text-transform: uppercase; width: 100%; transition: 0.3s; }
+        .submit-btn:hover { background: #047857; }
+        .contact-info-box h2 { font-size: 2rem; font-weight: 900; margin-bottom: 25px; }
+        .info-item { display: flex; gap: 20px; margin-bottom: 30px; }
+        .info-item i { font-size: 1.5rem; color: #059669; }
+        .info-item h4 { font-weight: 800; margin-bottom: 5px; }
+    </style>
+</head>
+
+<body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-inner">
+                <div class="top-links"><a href="./">Home</a><a href="#">FAQ</a><a href="./about.html">About Us</a><a href="./contact.html">Contact Us</a></div>
+                <div class="top-email"><i class="fas fa-envelope" style="color: var(--primary);"></i> Email Us: sales@primerubber.co.uk</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="header-main">
+        <div class="container">
+            <div class="header-row">
+                <a href="./" class="logo header-brand-logo">
+    <img src="./images/logo_main.png" alt="Prime Rubber UK" class="main-header-img">
+</a>
+                <div class="search-container"><input type="text" class="search-input" placeholder="Search products..."></div>
+                <div class="header-actions">
+                    <div class="h-contact"><i class="fas fa-phone-alt"></i><div class="h-contact-text"><strong>01282 778899</strong></div></div>
+                    <a href="./basket.html" class="action-btn"><i class="fas fa-shopping-bag"></i><span class="h-cart-count">0</span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAV BAR -->
+    <nav class="nav-bar">
+        <div class="container nav-inner">
+            <div class="nav-links">
+                <div class="nav-item">
+                    <a href="./" class="nav-link">Home</a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="index.html#matting" class="nav-link">Rubber Matting <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <!-- MEGA MENU -->
+                    <div class="mega-menu">
+                        <div class="container mega-inner">
+                            <div class="mega-grid">
+                                <div class="mega-list-col">
+                                    <div class="mega-header">
+                                        <div class="square"></div>
+                                        <h3>Rubber Matting</h3>
+                                    </div>
+                                    <div class="mega-prod-list">
+                                        <a href="./products/heavy-duty-ribbed-non-slip-rubber-matting-roll.html" class="mega-prod-item">
+                                            <div class="mega-img"><img src="./images/slider_matting.png" alt="Mat"></div>
+                                            <span class="mega-title">Ribbed Rubber Roll</span>
+                                        </a>
+                                        <a href="product.html?id=rb-mat-1" class="mega-prod-item">
+                                            <div class="mega-img"><img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Mat"></div>
+                                            <span class="mega-title">Matting Rolls</span>
+                                            <span class="mega-count">9</span>
+                                        </a>
+                                        <a href="product.html?id=rb-mat-1" class="mega-prod-item">
+                                            <div class="mega-img"><img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Mat"></div>
+                                            <span class="mega-title">Cut Lengths (<10m)</span>
+                                            <span class="mega-count">6</span>
+                                        </a>
+                                        <a href="product.html?id=rb-ent-1" class="mega-prod-item">
+                                            <div class="mega-img"><img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Mat"></div>
+                                            <span class="mega-title">Entrance Matting</span>
+                                            <span class="mega-count">5</span>
+                                        </a>
+                                        <a href="./products/anti-fatigue-industrial-oil-resistant-nitrile-rubber-matting-rolls.html" class="mega-prod-item">
+                                            <div class="mega-img"><img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Mat"></div>
+                                            <span class="mega-title">Anti-Fatigue Mats</span>
+                                            <span class="mega-count">5</span>
+                                        </a>
+                                        <a href="product.html?id=matting-1" class="mega-prod-item">
+                                            <div class="mega-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPisdjAEaDf6LBUk6otiY1zCNJR2GTKPvhwQ&s" alt="Mat"></div>
+                                            <span class="mega-title">Anti-Slip Mats</span>
+                                            <span class="mega-count">3</span>
+                                        </a>
+                                        <a href="product.html?id=rb-out-1" class="mega-prod-item">
+                                            <div class="mega-img"><img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Mat"></div>
+                                            <span class="mega-title">Outdoor Matting</span>
+                                            <span class="mega-count">4</span>
+                                        </a>
+                                    </div>
+                                    <a href="index.html#matting" class="mega-btn" style="margin-top: 25px; display: inline-block;">View All</a>
+                                </div>
+                                <div class="mega-banner-col">
+                                    <div class="mega-showcase-slider">
+                                        <!-- Slide 1 -->
+                                        <div class="showcase-slide">
+                                            <img src="./images/slider_matting.png" alt="Ribbed Roll">
+                                            <div class="showcase-content">
+                                                <div class="showcase-tag">Best Seller</div>
+                                                <h3>Ribbed Rubber Roll</h3>
+                                                <a href="./products/heavy-duty-ribbed-non-slip-rubber-matting-roll.html" class="showcase-btn">Shop Now</a>
+                                            </div>
+                                        </div>
+                                        <!-- Slide 2 -->
+                                        <div class="showcase-slide">
+                                            <img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Matting Rolls">
+                                            <div class="showcase-content">
+                                                <div class="showcase-tag">Industrial Grade</div>
+                                                <h3>Matting Rolls</h3>
+                                                <a href="product.html?id=rb-mat-1" class="showcase-btn">View Collection</a>
+                                            </div>
+                                        </div>
+                                        <!-- Slide 3 -->
+                                        <div class="showcase-slide">
+                                            <img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Entrance Mat">
+                                            <div class="showcase-content">
+                                                <div class="showcase-tag">New Arrival</div>
+                                                <h3>Entrance Matting</h3>
+                                                <a href="product.html?id=rb-ent-1" class="showcase-btn">Shop Now</a>
+                                            </div>
+                                        </div>
+                                        <!-- Slide 4 -->
+                                        <div class="showcase-slide">
+                                            <img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Anti-Fatigue">
+                                            <div class="showcase-content">
+                                                <div class="showcase-tag">Worker Safety</div>
+                                                <h3>Anti-Fatigue Mats</h3>
+                                                <a href="./products/anti-fatigue-industrial-oil-resistant-nitrile-rubber-matting-rolls.html" class="showcase-btn">Learn More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <a href="index.html#sheet" class="nav-link">Rubber Sheet</a>
+                </div>
+                <div class="nav-item">
+                    <a href="index.html#flooring" class="nav-link">Rubber Flooring</a>
+                </div>
+                <div class="nav-item">
+                    <a href="index.html#tarpaulins" class="nav-link">Tarpaulins</a>
+                </div>
+                <div class="nav-item">
+                    <a href="./about.html" class="nav-link">About Us</a>
+                </div>
+                <div class="nav-item">
+                    <a href="./contact.html" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header"><div class="container"><h1>Get In Touch</h1></div></div>
+
+    <main class="container">
+        <div class="contact-wrap">
+            <div class="contact-info-box">
+                <h2>Contact Information</h2>
+                <p style="margin-bottom: 40px; color: #64748b;">Have a technical question or need a custom quote? Our specialists are here to help you find the right rubber solution.</p>
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>Unit 42, Industrial Way, West Midlands, B1 1AA</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>01282 778899</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>sales@primerubber.co.uk</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" placeholder="How can we help?">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="5" placeholder="Tell us about your requirements..."></textarea>
+                    </div>
+                    <button type="button" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- PRE-FOOTER TRUST BAR -->
+    <section class="pre-footer-usp">
+        <div class="container">
+            <div class="usp-grid-4">
+                <div class="usp-card">
+                    <i class="fas fa-truck-fast"></i>
+                    <h3>Free UK Delivery</h3>
+                    <p>On all orders, no minimum spend required</p>
+                </div>
+                <div class="usp-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Dispatch</h3>
+                    <p>Order by 2pm for same day dispatch</p>
+                </div>
+                <div class="usp-card">
+                    <i class="fas fa-shield-check"></i>
+                    <h3>Quality Guaranteed</h3>
+                    <p>Tested for durability & industrial safety</p>
+                </div>
+                <div class="usp-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Expert Support</h3>
+                    <p>Call our UK team on 01282 778899</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW PROVINCIAL STYLE FOOTER -->
+    <footer class="new-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Ordering -->
+                <div class="footer-col">
+                    <h3>Ordering with us:</h3>
+                    <p>To find out more about our product range and areas of expertise, call us now</p>
+                    <div class="f-phone-big">
+                        <i class="fas fa-phone-alt"></i>
+                        01282 778899
+                    </div>
+                </div>
+
+                <!-- Column 2: Secure Shopping -->
+                <div class="footer-col" style="padding-left: 20px;">
+                    <h3>Secure Shopping:</h3>
+                    <div class="payment-logos">
+                        <img src="https://logo.clearbit.com/paypal.com" alt="PayPal">
+                        <img src="https://logo.clearbit.com/visa.com" alt="Visa">
+                        <img src="https://logo.clearbit.com/mastercard.com" alt="Mastercard">
+                        <img src="https://logo.clearbit.com/americanexpress.com" alt="Amex">
+                    </div>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="footer-col">
+                    <h3>Contact us:</h3>
+                    <p>Unit 42, Industrial Way, West Midlands, B1 1AA<br>
+                    email: sales@primerubber.co.uk</p>
+                    
+                    <div class="hours-list">
+                        <strong>Opening hours:</strong>
+                        Monday - Thursday 8am - 4:40pm<br>
+                        Friday 8am - 4pm
+                    </div>
+                </div>
+
+                <div class="footer-col delivery-col">
+    <h3>Delivery Partners</h3>
+    <div class="delivery-logos">
+        <div class="d-logo dhl">DHL</div>
+        <div class="d-logo fedex">FedEx</div>
+        <div class="d-logo evri">EVRi</div>
+        <div class="d-logo ups">UPS</div>
+    </div>
+</div>
+<!-- Column 4: Links Grid -->
+                <div class="footer-col">
+                    <div class="footer-links-grid">
+                        <ul class="f-nav-links">
+                            <li><a href="./about.html">About</a></li>
+                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Account</a></li>
+                        </ul>
+                        <ul class="f-nav-links">
+                            <li><a href="./delivery-returns.html">Delivery & Returns</a></li>
+                            <li><a href="./delivery-returns.html">Delivery & Returns Policies</a></li>
+                            <li><a href="./terms.html">Terms & Conditions</a></li>
+                            <li><a href="./privacy.html">Privacy Policy</a></li>
+                            <li><a href="./privacy.html">Cookie Policy</a></li>
+                            <li><a href="./privacy.html">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="bottom-bar">
+    <div class="bottom-logo-block">
+        <div class="footer-logo-capsule">
+            <img src="./images/logo_main.png" alt="Prime Rubber UK" class="main-footer-img">
+        </div>
+    </div>
+    <div class="bottom-content">
+        <div class="copyright">© 2025 - 2026 Prime Rubber UK. All rights reserved. The UK's definitive powerhouse for High-Performance Industrial Rubber, Specialist Matting, and Heavy-Duty Site Protection. Registered in England & Wales.</div>
+        <div class="chat-cta">Chat with us <i class="fas fa-comment-dots"></i></div>
+    </div>
+</div>
+
+    <script src="./products.js"></script>
+    <script src="./script.js"></script>
+    
+    <!-- Basket Notification Toast -->
+<div class="basket-notify" id="basketNotify">
+    <div class="notify-content">
+        <!-- Content injected by JS -->
+    </div>
+    <div class="notify-btns">
+        <a href="#" onclick="this.parentElement.parentElement.classList.remove('active')" class="btn-basket-view">Continue Shopping</a>
+        <a href="./basket.html" class="btn-basket-go">Go to Basket</a>
+    </div>
+</div>
+    <!-- Prime Chat Drawer -->
+<div class="prime-chat-drawer" id="primeChatDrawer">
+    <div class="chat-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div style="width:40px; height:40px; background:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--primary); font-weight:900; font-size:1.2rem;">J</div>
+            <div>
+                <h4 style="margin:0; font-size:1.1rem;">James</h4>
+                <div style="font-size:0.7rem; opacity:0.8;">Expert Support | Online</div>
+            </div>
+        </div>
+        <div onclick="toggleChat()" style="cursor:pointer; font-size:1.5rem;"><i class="fas fa-times"></i></div>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <!-- Messages will appear here -->
+    </div>
+    <div class="chat-footer">
+        <input type="text" placeholder="Message James..." id="chatInput">
+        <div class="chat-send-btn"><i class="fas fa-paper-plane"></i></div>
+    </div>
+</div>
+
+</body>
+</html>

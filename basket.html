@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Basket | Prime Rubber UK</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        .basket-page {
+            padding: 80px 0;
+            background: #f8fafc;
+            min-height: 80vh;
+        }
+
+        .basket-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .basket-items {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .basket-summary {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            height: fit-content;
+        }
+
+        .basket-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+        }
+
+        .basket-item:last-child {
+            border: none;
+        }
+
+        .basket-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .q-btn {
+            background: #eee;
+            border: none;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .summary-total {
+            font-size: 1.4rem;
+            font-weight: 900;
+            border-top: 2px solid var(--border);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: var(--primary-dk);
+            transform: translateY(-2px);
+        }
+
+        .empty-msg {
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header-main" style="padding: 15px 0; border-bottom: 1px solid #eee; background: #fff;">
+        <div class="container">
+            <div class="header-row" style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="./" class="logo header-brand-logo">
+                    <img src="./images/logo_main.png" alt="Prime Rubber UK" class="main-header-img">
+                </a>
+                <a href="./"
+                    style="color: #059669; font-weight: 700; text-decoration: none; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-arrow-left"></i> Continue Shopping
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="basket-page">
+        <div class="container">
+            <h1 style="margin-bottom: 30px; font-weight: 900;">Your Shopping Basket</h1>
+            <div class="basket-container">
+                <div class="basket-items" id="basketItems">
+                    <!-- Items injected by JS -->
+                </div>
+                <div class="basket-summary">
+                    <h2 style="margin-bottom: 20px; font-weight: 800;">Order Summary</h2>
+                    <div id="summaryContent">
+                        <!-- Summary injected by JS -->
+                    </div>
+                    <button class="checkout-btn" onclick="window.location.href='checkout.html'">PROCEED TO SECURE
+                        CHECKOUT <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRE-FOOTER TRUST BAR -->
+    <section class="pre-footer-usp">
+        <div class="container">
+            <div class="usp-grid-4">
+                <div class="usp-card">
+                    <i class="fas fa-truck-fast"></i>
+                    <h3>Free UK Delivery</h3>
+                    <p>On all orders, no minimum spend required</p>
+                </div>
+                <div class="usp-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Dispatch</h3>
+                    <p>Order by 2pm for same day dispatch</p>
+                </div>
+                <div class="usp-card">
+                    <i class="fas fa-shield-check"></i>
+                    <h3>Quality Guaranteed</h3>
+                    <p>Tested for durability & industrial safety</p>
+                </div>
+                <div class="usp-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Expert Support</h3>
+                    <p>Call our UK team on 01282 778899</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW PROVINCIAL STYLE FOOTER -->
+    <footer class="new-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Ordering -->
+                <div class="footer-col">
+                    <h3>Ordering with us:</h3>
+                    <p>To find out more about our product range and areas of expertise, call us now</p>
+                    <div class="f-phone-big">
+                        <i class="fas fa-phone-alt"></i>
+                        01282 778899
+                    </div>
+                </div>
+
+                <!-- Column 2: Secure Shopping -->
+                <div class="footer-col" style="padding-left: 20px;">
+                    <h3>Secure Shopping:</h3>
+                    <div class="payment-logos">
+                        <img src="https://logo.clearbit.com/paypal.com" alt="PayPal">
+                        <img src="https://logo.clearbit.com/visa.com" alt="Visa">
+                        <img src="https://logo.clearbit.com/mastercard.com" alt="Mastercard">
+                        <img src="https://logo.clearbit.com/americanexpress.com" alt="Amex">
+                    </div>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="footer-col">
+                    <h3>Contact us:</h3>
+                    <p>Unit 42, Industrial Way, West Midlands, B1 1AA<br>
+                        email: sales@primerubber.co.uk</p>
+
+                    <div class="hours-list">
+                        <strong>Opening hours:</strong>
+                        Monday - Thursday 8am - 4:40pm<br>
+                        Friday 8am - 4pm
+                    </div>
+                </div>
+
+                <div class="footer-col delivery-col">
+                    <h3>Delivery Partners</h3>
+                    <div class="delivery-logos">
+                        <div class="d-logo dhl">DHL</div>
+                        <div class="d-logo fedex">FedEx</div>
+                        <div class="d-logo evri">EVRi</div>
+                        <div class="d-logo ups">UPS</div>
+                    </div>
+                </div>
+                <!-- Column 4: Links Grid -->
+                <div class="footer-col">
+                    <div class="footer-links-grid">
+                        <ul class="f-nav-links">
+                            <li><a href="./about.html">About</a></li>
+                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Account</a></li>
+                        </ul>
+                        <ul class="f-nav-links">
+                            <li><a href="./delivery-returns.html">Delivery & Returns</a></li>
+                            <li><a href="./delivery-returns.html">Delivery & Returns Policies</a></li>
+                            <li><a href="./terms.html">Terms & Conditions</a></li>
+                            <li><a href="./privacy.html">Privacy Policy</a></li>
+                            <li><a href="./privacy.html">Cookie Policy</a></li>
+                            <li><a href="./privacy.html">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="bottom-bar">
+        <div class="bottom-logo-block">
+            <div class="footer-logo-capsule">
+                <img src="./images/logo_main.png" alt="Prime Rubber UK" class="main-footer-img">
+            </div>
+        </div>
+        <div class="bottom-content">
+            <div class="copyright">© 2025 - 2026 Prime Rubber UK. All rights reserved. The UK's definitive powerhouse
+                for High-Performance Industrial Rubber, Specialist Matting, and Heavy-Duty Site Protection. Registered
+                in England & Wales.</div>
+            <div class="chat-cta">Chat with us <i class="fas fa-comment-dots"></i></div>
+        </div>
+    </div>
+
+    <script src="./products.js"></script>
+    <script>
+        // Inline basket logic for simplicity or can be in script.js
+        let basketCart = JSON.parse(localStorage.getItem('prime_cart')) || [];
+
+        function renderBasket() {
+            const container = document.getElementById('basketItems');
+            const summary = document.getElementById('summaryContent');
+
+            if (basketCart.length === 0) {
+                container.innerHTML = '<div class="empty-msg"><h3>Your basket is empty.</h3><a href="./" class="slide-btn" style="margin-top:20px; text-decoration:none;">Go back to shop</a></div>';
+                summary.innerHTML = '<p>Nothing here yet.</p>';
+                return;
+            }
+
+            container.innerHTML = basketCart.map((item, index) => `
+                <div class="basket-item">
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="item-info">
+                        <h3>${item.title}</h3>
+                        <p class="item-price">${item.price}</p>
+                        <div class="quantity-controls">
+                            <button class="q-btn" onclick="updateQty(${index}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="q-btn" onclick="updateQty(${index}, 1)">+</button>
+                            <button onclick="removeItem(${index})" style="background:none; border:none; color:red; cursor:pointer; margin-left:15px;"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            const subtotal = basketCart.reduce((sum, item) => sum + (parseFloat(item.price.replace('£', '').replace(',', '')) * item.quantity), 0);
+            const vat = subtotal * 0.2;
+            const total = subtotal; // Price already inc vat in data
+
+            summary.innerHTML = `
+                <div class="summary-row"><span>Subtotal (Ex. VAT)</span><span>£${(subtotal * 0.8).toFixed(2)}</span></div>
+                <div class="summary-row"><span>VAT (20%)</span><span>£${vat.toFixed(2)}</span></div>
+                <div class="summary-row"><span>Shipping</span><span>FREE</span></div>
+                <div class="summary-row summary-total"><span>Total (Inc. VAT)</span><span>£${total.toFixed(2)}</span></div>
+            `;
+        }
+
+        function updateQty(index, delta) {
+            basketCart[index].quantity += delta;
+            if (basketCart[index].quantity < 1) basketCart[index].quantity = 1;
+            saveAndRefill();
+        }
+
+        function removeItem(index) {
+            basketCart.splice(index, 1);
+            saveAndRefill();
+        }
+
+        function saveAndRefill() {
+            localStorage.setItem('prime_cart', JSON.stringify(basketCart));
+            renderBasket();
+        }
+
+        document.addEventListener('DOMContentLoaded', renderBasket);
+    </script>
+
+    <!-- Basket Notification Toast -->
+    <div class="basket-notify" id="basketNotify">
+        <div class="notify-content">
+            <!-- Content injected by JS -->
+        </div>
+        <div class="notify-btns">
+            <a href="#" onclick="this.parentElement.parentElement.classList.remove('active')"
+                class="btn-basket-view">Continue Shopping</a>
+            <a href="./basket.html" class="btn-basket-go">Go to Basket</a>
+        </div>
+    </div>
+    <!-- Prime Chat Drawer -->
+    <div class="prime-chat-drawer" id="primeChatDrawer">
+        <div class="chat-header">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <div
+                    style="width:40px; height:40px; background:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--primary); font-weight:900; font-size:1.2rem;">
+                    J</div>
+                <div>
+                    <h4 style="margin:0; font-size:1.1rem;">James</h4>
+                    <div style="font-size:0.7rem; opacity:0.8;">Expert Support | Online</div>
+                </div>
+            </div>
+            <div onclick="toggleChat()" style="cursor:pointer; font-size:1.5rem;"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <!-- Messages will appear here -->
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Message James..." id="chatInput">
+            <div class="chat-send-btn"><i class="fas fa-paper-plane"></i></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

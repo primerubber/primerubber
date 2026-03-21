@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Categories | Prime Rubber UK</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        .all-cats-header {
+            background: #000;
+            padding: 80px 0 40px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            margin-bottom: 60px;
+        }
+
+        .all-cats-header h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .cat-row-section {
+            margin-bottom: 80px;
+        }
+
+        .cat-row-title-bar {
+            background: #f8fafc;
+            padding: 15px 30px;
+            border-left: 8px solid var(--primary);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cat-row-title-bar h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0f172a;
+            text-transform: uppercase;
+        }
+
+        .cat-row-title-bar .cat-count {
+            background: #0f172a;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-inner">
+                <div class="top-links">
+                    <a href="./">Home</a>
+                    <a href="#">FAQ</a>
+                    <a href="./about.html">About Us</a>
+                    <a href="./contact.html">Contact Us</a>
+                </div>
+                <div class="top-email">
+                    <i class="fas fa-envelope" style="color: var(--primary);"></i> Email Us: sales@primerubber.co.uk
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="header-main">
+        <div class="container">
+            <div class="header-row">
+                <a href="./" class="logo header-brand-logo">
+                    <img src="./images/logo_main.png" alt="Prime Rubber UK" class="main-header-img">
+                </a>
+
+                <div class="search-container">
+                    <i class="fas fa-search search-icon-inside"></i>
+                    <input type="text" class="search-input" placeholder="Search products...">
+                    <button class="search-btn">SEARCH</button>
+                </div>
+
+                <div class="header-actions">
+                    <div class="h-contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="h-contact-text">
+                            <strong>01282 778899</strong>
+                        </div>
+                    </div>
+                    <a href="./basket.html" class="action-btn">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="h-cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAV BAR (REPLICATED FROM CATEGORY.HTML) -->
+    <nav class="nav-bar">
+        <div class="container nav-inner">
+            <div class="nav-links">
+                <div class="nav-item"><a href="./" class="nav-link">Home</a></div>
+                <div class="nav-item"><a href="./category/rubber-matting.html" class="nav-link">Rubber Matting</a>
+                </div>
+                <div class="nav-item"><a href="./category/rubber-sheet.html" class="nav-link">Rubber Sheet</a></div>
+                <div class="nav-item"><a href="./category/rubber-flooring.html" class="nav-link">Rubber Flooring</a>
+                </div>
+                <div class="nav-item"><a href="./category/tarpaulins.html" class="nav-link">Tarpaulins</a></div>
+                <div class="nav-item"><a href="./about.html" class="nav-link">About Us</a></div>
+                <div class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="all-cats-header">
+            <div class="container">
+                <h1>The Master Collection</h1>
+                <p style="color: rgba(255,255,255,0.6); font-weight: 500; letter-spacing: 1px; margin-top: 10px;">UK'S
+                    HIGHEST QUALITY INDUSTRIAL RUBBER GRADES ON ONE PAGE</p>
+            </div>
+        </div>
+
+        <div class="container" id="allProductContainer">
+            <!-- Dynamically populated categories -->
+        </div>
+        <!-- PRE-FOOTER TRUST BAR -->
+        <section class="pre-footer-usp" style="margin-top: 80px;">
+            <div class="container">
+                <div class="usp-grid-4">
+                    <div class="usp-card">
+                        <i class="fas fa-truck-fast"></i>
+                        <h3>Free UK Delivery</h3>
+                        <p>On all orders, no minimum spend required</p>
+                    </div>
+                    <div class="usp-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Fast Dispatch</h3>
+                        <p>Order by 2pm for same day dispatch</p>
+                    </div>
+                    <div class="usp-card">
+                        <i class="fas fa-shield-check"></i>
+                        <h3>Quality Guaranteed</h3>
+                        <p>Tested for durability & industrial safety</p>
+                    </div>
+                    <div class="usp-card">
+                        <i class="fas fa-headset"></i>
+                        <h3>Expert Support</h3>
+                        <p>Call our UK team on 01282 778899</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW PROVINCIAL STYLE FOOTER -->
+        <footer class="new-footer" style="margin-top: 0;">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Column 1: Ordering -->
+                    <div class="footer-col">
+                        <h3>Ordering with us:</h3>
+                        <p>To find out more about our product range and areas of expertise, call us now</p>
+                        <div class="f-phone-big">
+                            <i class="fas fa-phone-alt"></i>
+                            01282 778899
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Secure Shopping -->
+                    <div class="footer-col" style="padding-left: 20px;">
+                        <h3>Secure Shopping:</h3>
+                        <div class="payment-logos" style="display: flex; gap: 20px; font-size: 2.2rem; color: #64748b;">
+                            <i class="fab fa-cc-paypal" title="PayPal"></i>
+                            <i class="fab fa-cc-visa" title="Visa"></i>
+                            <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                            <i class="fab fa-cc-amex" title="Amex"></i>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Contact -->
+                    <div class="footer-col">
+                        <h3>Contact us:</h3>
+                        <p>Unit 42, Industrial Way, West Midlands, B1 1AA<br>
+                            email: sales@primerubber.co.uk</p>
+
+                        <div class="hours-list">
+                            <strong>Opening hours:</strong>
+                            Monday - Thursday 8am - 4:40pm<br>
+                            Friday 8am - 4pm
+                        </div>
+                    </div>
+
+                    <div class="footer-col delivery-col">
+                        <h3>Delivery Partners</h3>
+                        <div class="delivery-logos">
+                            <div class="d-logo dhl">DHL</div>
+                            <div class="d-logo fedex">FedEx</div>
+                            <div class="d-logo evri">EVRi</div>
+                            <div class="d-logo ups">UPS</div>
+                        </div>
+                    </div>
+                    <!-- Column 4: Links Grid -->
+                    <div class="footer-col">
+                        <div class="footer-links-grid">
+                            <ul class="f-nav-links">
+                                <li><a href="./about.html">About</a></li>
+                                <li><a href="./contact.html">Contact</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Account</a></li>
+                            </ul>
+                            <ul class="f-nav-links">
+                                <li><a href="./delivery-returns.html">Delivery & Returns</a></li>
+                                <li><a href="./delivery-returns.html">Delivery & Returns Policies</a></li>
+                                <li><a href="./terms.html">Terms & Conditions</a></li>
+                                <li><a href="./privacy.html">Privacy Policy</a></li>
+                                <li><a href="./privacy.html">Cookie Policy</a></li>
+                                <li><a href="./privacy.html">Disclaimer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="bottom-bar">
+            <div class="bottom-logo-block">
+                <div class="footer-logo-capsule">
+                    <img src="./images/logo_main.png" alt="Prime Rubber UK" class="main-footer-img">
+                </div>
+            </div>
+            <div class="bottom-content">
+                <div class="copyright">© 2025 - 2026 Prime Rubber UK. All rights reserved. The UK's definitive
+                    powerhouse
+                    for High-Performance Industrial Rubber, Specialist Matting, and Heavy-Duty Site Protection.
+                    Registered
+                    in England & Wales.</div>
+                <div class="chat-cta">Chat with us <i class="fas fa-comment-dots"></i></div>
+            </div>
+        </div>
+
+        <script src="./products.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const container = document.getElementById('allProductContainer');
+                const searchInput = document.querySelector('.search-input');
+                const types = ["Rubber Matting", "Rubber Sheet", "Rubber Flooring", "Tarpaulins"];
+
+                function renderProducts(filterText = '') {
+                    container.innerHTML = '';
+                    let totalMatches = 0;
+                    const query = filterText.toLowerCase().trim();
+                    const words = query.split(/\s+/).filter(w => w.length > 0);
+
+                    types.forEach(type => {
+                        const filtered = products.filter(p => {
+                            const ct = p.category.toLowerCase();
+                            const tt = type.toLowerCase();
+                            const matchesCategory = (tt === 'rubber matting') ? ct.includes('matting') :
+                                (tt === 'rubber sheet') ? ct.includes('sheet') :
+                                    (ct === tt);
+
+                            if (!matchesCategory) return false;
+
+                            if (words.length === 0) return true;
+
+                            // SMARTER MATCH: ALL words must appear in (Title + Category + Description)
+                            const searchableText = `${p.title} ${p.category} ${p.description || ''}`.toLowerCase();
+                            return words.every(word => searchableText.includes(word));
+                        });
+
+                        if (filtered.length > 0) {
+                            totalMatches += filtered.length;
+                            const typeSection = document.createElement('section');
+                            typeSection.className = 'cat-row-section';
+                            typeSection.innerHTML = `
+                                <div class="cat-row-title-bar">
+                                    <h2>${type}</h2>
+                                    <span class="cat-count">${filtered.length} PRODUCTS</span>
+                                </div>
+                                <div class="product-grid">
+                                    ${filtered.map(product => `
+                                        <div class="product-card">
+                                            <a href="product.html?id=${product.id}">
+                                                <div class="product-img">
+                                                    <img src="${product.image}" alt="${product.title}">
+                                                </div>
+                                            </a>
+                                            <div class="product-label-bar">
+                                                <h3>${product.title}</h3>
+                                            </div>
+                                            <div class="product-price-bar">
+                                                <span style="color: #64748b; font-size: 0.8rem;">From</span> 
+                                                <span style="color: #059669; font-weight: 800;">${product.price}</span>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            `;
+                            container.appendChild(typeSection);
+                        }
+                    });
+
+                    if (totalMatches === 0) {
+                        container.innerHTML = `
+                            <div style="text-align: center; padding: 100px 20px; color: #64748b;">
+                                <i class="fas fa-search-minus" style="font-size: 4rem; opacity: 0.2; margin-bottom: 20px; display: block;"></i>
+                                <h3 style="font-size: 1.5rem; font-weight: 800; color: #1e293b;">Zero Matches Found</h3>
+                                <p>We couldn't find any products matching "<strong>${filterText}</strong>".<br>Try checking your spelling or using more general terms.</p>
+                                <button onclick="location.reload()" style="margin-top: 30px; background: #0f172a; color: #fff; border: none; padding: 12px 30px; border-radius: 50px; font-weight: 800; cursor: pointer;">View Entire Collection</button>
+                            </div>
+                        `;
+                    }
+                }
+
+                // Check for URL Parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const initialQuery = urlParams.get('search') || '';
+
+                if (initialQuery) {
+                    searchInput.value = initialQuery;
+                    renderProducts(initialQuery);
+                } else {
+                    renderProducts();
+                }
+
+                // Live search logic
+                searchInput.addEventListener('input', (e) => {
+                    renderProducts(e.target.value);
+                });
+            });
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout | Prime Rubber UK</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --checkout-bg: #f3f4f6;
+            --checkout-accent: #059669;
+        }
+
+        body {
+            background: var(--checkout-bg);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .checkout-header {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 40px;
+        }
+
+        .checkout-header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        /* Forms */
+        .checkout-main {
+            background: #fff;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout-section {
+            margin-bottom: 40px;
+        }
+
+        .checkout-section h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--secondary);
+        }
+
+        .checkout-section h2 span {
+            background: var(--checkout-accent);
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 0.9rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #4b5563;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--checkout-accent);
+        }
+
+        /* Order Summary */
+        .checkout-sidebar {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .summary-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .summary-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .summary-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .summary-info h4 {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .summary-info p {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        .summary-calc {
+            margin-top: 20px;
+        }
+
+        .calc-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #4b5563;
+        }
+
+        .calc-total {
+            border-top: 2px solid #f3f4f6;
+            margin-top: 15px;
+            padding-top: 15px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: var(--secondary);
+        }
+
+        .complete-order-btn {
+            width: 100%;
+            background: var(--checkout-accent);
+            color: #fff;
+            border: none;
+            padding: 20px;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: 0.3s;
+        }
+
+        .complete-order-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .payment-methods {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .payment-option {
+            border: 2px solid #e5e7eb;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .payment-option.active {
+            border-color: var(--checkout-accent);
+            background: #f0fdf4;
+        }
+
+        @media (max-width: 991px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .checkout-sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="checkout-header">
+        <div class="container checkout-header-inner">
+            <a href="./" class="logo">
+                <img src="./images/logo_main.png" alt="Prime Rubber UK" style="height: 50px;">
+            </a>
+            <div style="font-weight: 700; color: #6b7280;">
+                <i class="fas fa-lock"></i> 256-Bit SSL Secure Checkout
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="checkout-grid">
+            <div class="checkout-main">
+                <!-- Shipping Address -->
+                <div class="checkout-section">
+                    <h2><span>1</span> Contact Information</h2>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="email@example.com">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-section">
+                    <h2><span>2</span> Shipping Details</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Street Address</label>
+                            <input type="text" placeholder="House number and street name">
+                        </div>
+                        <div class="form-group">
+                            <label>Town / City</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <label>Postcode</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Phone Number</label>
+                            <input type="tel">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-section">
+                    <h2><span>3</span> Payment Method</h2>
+                    <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 15px;">Securely pay via Card or PayPal.
+                        Encrypted for your safety.</p>
+                    <div class="payment-methods">
+                        <div class="payment-option active" id="payCard">
+                            <i class="fas fa-credit-card"></i><br>
+                            <strong>Credit/Debit Card</strong>
+                        </div>
+                        <div class="payment-option" id="payPayPal">
+                            <i class="fab fa-paypal"></i><br>
+                            <strong>PayPal</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-sidebar">
+                <div class="summary-card">
+                    <h3>Review Your Order</h3>
+                    <div id="checkoutItems">
+                        <!-- Items from JS -->
+                    </div>
+
+                    <div class="summary-calc" id="checkoutCalc">
+                        <!-- Calc from JS -->
+                    </div>
+
+                    <button class="complete-order-btn"
+                        onclick="alert('Proceeding to Secure Payment Provider...')">Complete Secure Order <i
+                            class="fas fa-shield-check"></i></button>
+
+                    <div style="margin-top: 20px; text-align: center; font-size: 0.8rem; color: #9ca3af;">
+                        <i class="fas fa-undo"></i> 30-Day Money Back Guarantee
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./products.js"></script>
+    <script>
+        const cart = JSON.parse(localStorage.getItem('prime_cart')) || [];
+
+        function renderCheckout() {
+            const itemContainer = document.getElementById('checkoutItems');
+            const calcContainer = document.getElementById('checkoutCalc');
+
+            if (cart.length === 0) {
+                window.location.href = 'basket.html';
+                return;
+            }
+
+            itemContainer.innerHTML = cart.map(item => `
+                <div class="summary-item">
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="summary-info">
+                        <h4>${item.title}</h4>
+                        <p>Qty: ${item.quantity} × ${item.price}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            const subtotal = cart.reduce((sum, item) => sum + (parseFloat(item.price.replace('£', '').replace(',', '')) * item.quantity), 0);
+            const total = subtotal;
+
+            calcContainer.innerHTML = `
+                <div class="calc-row"><span>Subtotal</span><span>£${(subtotal * 0.8).toFixed(2)}</span></div>
+                <div class="calc-row"><span>VAT (20%)</span><span>£${(subtotal * 0.2).toFixed(2)}</span></div>
+                <div class="calc-row"><span>Shipping</span><span style="color: #059669; font-weight:700;">FREE</span></div>
+                <div class="calc-row calc-total"><span>Order Total</span><span>£${total.toFixed(2)}</span></div>
+            `;
+        }
+
+        document.getElementById('payCard').onclick = function () {
+            this.classList.add('active');
+            document.getElementById('payPayPal').classList.remove('active');
+        };
+        document.getElementById('payPayPal').onclick = function () {
+            this.classList.add('active');
+            document.getElementById('payCard').classList.remove('active');
+        };
+
+        document.addEventListener('DOMContentLoaded', renderCheckout);
+    </script>
+</body>
+
+</html>
