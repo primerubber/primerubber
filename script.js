@@ -136,7 +136,7 @@ function renderProducts() {
 
     productGrid.innerHTML = selected.map(product => `
         <div class="product-card">
-            <a href="./products/${product.slug}">
+            <a href="./product.html?slug=${product.slug}">
                 <div class="product-img">
                     <img src="${product.image}" alt="${product.title}" loading="lazy" decoding="async">
                 </div>
@@ -193,7 +193,7 @@ function initProductPage() {
     document.title = `${product.title} | Prime Rubber`;
     const breadcrumb = document.getElementById('breadcrumb');
     if (breadcrumb) {
-        breadcrumb.innerHTML = `<a href="./">Home</a> / <a href="/category/${product.category.toLowerCase().replace(/ /g, '-')}">${product.category}</a> / ${product.title}`;
+        breadcrumb.innerHTML = `<a href="./">Home</a> / <a href="./category.html?type=${product.category.toLowerCase().replace(/ /g, '-')}">${product.category}</a> / ${product.title}`;
     }
 
     // Update Title & Price
