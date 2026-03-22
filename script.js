@@ -602,3 +602,92 @@ document.addEventListener('mousemove', (e) => {
 });
 
 console.log('%c PRIME RUBBER V2.0 🚀 Initialized ', 'background: #059669; color: #fff; font-weight: bold; padding: 5px; border-radius: 5px;');
+
+// --- Premium Cookie Consent System ---
+function initCookieConsent() {
+    if (localStorage.getItem('prime_cookie_consent')) return; // Already answered
+
+    const overlay = document.createElement('div');
+    overlay.className = 'cookie-overlay';
+    overlay.innerHTML = `
+        <div class="cookie-modal">
+            <div class="c-modal-header">
+                <h3>Manage Consent</h3>
+                <p>We use technologies like cookies to store and/or access device information. Consenting helps us deliver the best Prime Rubber experience directly tailored to your industry needs.</p>
+            </div>
+            <div class="c-options">
+                <div class="c-option-row">
+                    <div class="c-opt-left">
+                        <span class="c-opt-title">Functional</span>
+                    </div>
+                    <span style="color: #059669; font-weight: 600; font-size: 0.85rem;">Always active &nbsp;<i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="c-option-row">
+                    <div class="c-opt-left">
+                        <span class="c-opt-title">Statistics</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="c-toggle" id="cOptStat">
+                        <i class="fas fa-chevron-down" style="margin-left:8px; color:#1e293b; font-size:0.8rem;"></i>
+                    </div>
+                </div>
+                <div class="c-option-row">
+                    <div class="c-opt-left">
+                        <span class="c-opt-title">Marketing</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="c-toggle" id="cOptMark">
+                        <i class="fas fa-chevron-down" style="margin-left:8px; color:#1e293b; font-size:0.8rem;"></i>
+                    </div>
+                </div>
+            </div>
+            <a href="#" style="font-size: 0.8rem; color: #3b82f6; text-decoration: underline; display: block; margin-bottom: 15px;">Manage services</a>
+            <div class="c-footer">
+                <button class="c-btn c-btn-accept" id="cookieAcceptBtn">Accept All</button>
+                <button class="c-btn c-btn-deny" id="cookieDenyBtn">Deny Optional</button>
+                <button class="c-btn c-btn-save" id="cookieSaveBtn">Save Selected</button>
+            </div>
+            <div class="c-links">
+                <a href="./privacy.html">Privacy Policy</a> | <a href="./terms.html">Cookie Policy</a>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    // Show it with a slight delay
+    setTimeout(() => overlay.classList.add('active'), 1500);
+
+    const saveBtn = overlay.querySelector('#cookieSaveBtn');
+    const acceptBtn = overlay.querySelector('#cookieAcceptBtn');
+    const denyBtn = overlay.querySelector('#cookieDenyBtn');
+
+    const closeConsent = (consentData) => {
+        localStorage.setItem('prime_cookie_consent', JSON.stringify(consentData));
+        overlay.classList.remove('active');
+        setTimeout(() => overlay.remove(), 500);
+    };
+
+    saveBtn.onclick = () => {
+        closeConsent({
+            functional: true,
+            statistics: document.getElementById('cOptStat').checked,
+            marketing: document.getElementById('cOptMark').checked
+        });
+    };
+
+    acceptBtn.onclick = () => {
+        closeConsent({ functional: true, statistics: true, marketing: true });
+    };
+
+    denyBtn.onclick = () => {
+        closeConsent({ functional: true, statistics: false, marketing: false });
+    };
+}
+
+// Ensure it runs after DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieConsent);
+} else {
+    // If DOM is already loaded
+    setTimeout(initCookieConsent, 500);
+}
