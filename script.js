@@ -164,7 +164,7 @@ function renderTicker() {
     const displayArray = [...tickerProducts, ...tickerProducts];
 
     tickerTrack.innerHTML = displayArray.map(p => `
-        <a href="./products/${p.slug}" class="t-card">
+        <a href="./product.html?slug=${p.slug}" class="t-card">
             <div class="t-img-box">
                 <img src="${p.image}" alt="${p.title}" loading="lazy" decoding="async">
             </div>
@@ -269,7 +269,7 @@ function initProductPage() {
                     <div class="related-info">
                         <h3>${p.title}</h3>
                         <span class="related-price">From ${p.price}</span>
-                        <a href="./products/${p.slug}" class="related-btn">More Information</a>
+                        <a href="./product.html?slug=${p.slug}" class="related-btn">More Information</a>
                     </div>
                 </div>
             `).join('');
