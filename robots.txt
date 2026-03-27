@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /checkout.html
+Disallow: /basket.html
 
 Sitemap: https://primerubber.co.uk/sitemap.xml
