@@ -2124,46 +2124,63 @@ img {
 
 /* --- NEW PROVINCIAL STYLE FOOTER --- */
 .new-footer {
-    background: #f2f2f2;
-    padding: 60px 0;
-    color: #333;
+    background: #0a0f1e;
+    padding: 70px 0 50px;
+    color: #94a3b8;
     font-family: 'Outfit', sans-serif;
+    border-top: 1px solid rgba(16,185,129,0.15);
+    position: relative;
+}
+
+.new-footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, #10b981, #059669, transparent);
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr 1fr 1.2fr 1.5fr;
-    /* Added column for delivery */
-    gap: 30px;
+    gap: 40px;
 }
 
 .footer-col h3 {
-    font-size: 1.6rem;
-    font-weight: 900;
-    color: #333;
-    margin-bottom: 25px;
-    letter-spacing: -0.5px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .footer-col p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    color: #64748b;
 }
 
 .f-phone-big {
     display: flex;
     align-items: center;
-    gap: 15px;
-    font-size: 2.2rem;
+    gap: 12px;
+    font-size: 1.6rem;
     font-weight: 900;
-    color: #333;
+    color: #ffffff;
+    margin-top: 10px;
 }
 
 .f-phone-big i {
-    color: #fff;
-    /* White icon for better contrast on the new theme */
-    font-size: 2.5rem;
+    color: #10b981;
+    font-size: 1.4rem;
+    background: rgba(16,185,129,0.1);
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 10px;
+    border: 1px solid rgba(16,185,129,0.2);
 }
 
 .payment-logos {
@@ -2175,13 +2192,20 @@ img {
 
 .payment-logos img {
     height: 35px;
-    border: 1px solid #ddd;
-    background: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
     padding: 5px;
-    border-radius: 4px;
+    border-radius: 6px;
 }
 
-/* 3rd Screenshot: Delivery Partners Styling */
+.payment-logos i {
+    font-size: 2rem;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+.payment-logos i:hover { color: #ffffff; }
+
+/* Delivery Partners */
 .delivery-logos {
     display: flex;
     flex-wrap: wrap;
@@ -2190,50 +2214,37 @@ img {
 }
 
 .d-logo {
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    padding: 7px 13px;
+    border-radius: 6px;
+    font-size: 0.72rem;
     font-weight: 900;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255,255,255,0.06);
 }
 
-.dhl {
-    background: #FFCC00;
-    color: #D40511;
-}
-
-/* Yellow/Red */
-.fedex {
-    background: #4D148C;
-    color: #FF6600;
-}
-
-/* Purple/Orange */
-.evri {
-    background: #000;
-    color: #fff;
-    border: 1px solid #fff;
-}
-
-.ups {
-    background: #351C15;
-    color: #FFB500;
-}
-
-/* Brown/Yellow */
+.dhl { background: #FFCC00; color: #D40511; }
+.fedex { background: #4D148C; color: #FF6600; }
+.evri { background: #1a1a2e; color: #fff; border-color: rgba(255,255,255,0.15); }
+.ups { background: #351C15; color: #FFB500; }
 
 .hours-list {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin-top: 15px;
+    line-height: 1.8;
+    color: #64748b;
 }
 
 .hours-list strong {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    color: #10b981;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
 
 .footer-links-grid {
@@ -2248,36 +2259,51 @@ img {
 }
 
 .f-nav-links li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .f-nav-links a {
-    font-size: 0.9rem;
-    color: #333;
+    font-size: 0.85rem;
+    color: #64748b;
     text-decoration: none;
-    transition: 0.2s;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.f-nav-links a i {
+    font-size: 0.7rem;
+    color: #10b981;
+    width: 14px;
+    opacity: 0.7;
 }
 
 .f-nav-links a:hover {
-    color: var(--primary);
+    color: #10b981;
+    padding-left: 4px;
+}
+
+.f-nav-links a:hover i {
+    opacity: 1;
 }
 
 /* Bottom Copyright Bar */
 .bottom-bar {
-    background: #000;
+    background: #060b14;
     color: #fff;
     display: flex;
     align-items: stretch;
-    min-height: 80px;
+    min-height: 75px;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 .bottom-logo-block {
-    background: var(--primary);
-    /* Reverting to Emerald Green as requested */
+    background: #10b981;
     padding: 0 40px;
     display: flex;
     align-items: center;
-    width: 380px;
+    width: 340px;
     justify-content: center;
 }
 
@@ -2297,25 +2323,31 @@ img {
 }
 
 .copyright {
-    font-size: 0.75rem;
-    color: #fff;
-    /* High-contrast white */
-    font-weight: 800;
-    /* Definitively bold */
+    font-size: 0.72rem;
+    color: #475569;
+    font-weight: 500;
     line-height: 1.6;
-    max-width: 750px;
+    max-width: 700px;
     letter-spacing: 0.2px;
 }
 
 .chat-cta {
-    font-size: 1.1rem;
-    font-weight: 950;
-    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #10b981;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 12px;
-    letter-spacing: -0.2px;
+    gap: 8px;
+    letter-spacing: 0.3px;
+    padding: 8px 18px;
+    border: 1px solid rgba(16,185,129,0.3);
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+.chat-cta:hover {
+    background: rgba(16,185,129,0.1);
+    border-color: #10b981;
 }
 
 .chat-cta i {
@@ -2703,12 +2735,14 @@ img {
 
 /* --- PRE-FOOTER USP BAR --- */
 .pre-footer-usp {
-    background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+    background: #0f172a;
     padding: 60px 0;
     color: white;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-top: 1px solid rgba(16,185,129,0.12);
+    border-bottom: 1px solid rgba(16,185,129,0.12);
 }
 
 .pre-footer-usp::before {
@@ -2718,61 +2752,52 @@ img {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    animation: rotateGradient 15s linear infinite;
+    background: radial-gradient(ellipse at 50% 0%, rgba(16,185,129,0.08) 0%, transparent 60%);
     pointer-events: none;
-}
-
-@keyframes rotateGradient {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
 }
 
 .usp-grid-4 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 2px;
     position: relative;
     z-index: 2;
 }
 
 .usp-card {
-    padding: 20px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border-radius: 15px;
+    padding: 35px 25px;
+    transition: all 0.3s ease;
+    border-right: 1px solid rgba(255,255,255,0.06);
     cursor: pointer;
+    text-align: center;
 }
+.usp-card:last-child { border-right: none; }
 
 .usp-card:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    background: rgba(16,185,129,0.06);
+    transform: translateY(-4px);
 }
 
 .usp-card i {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 16px;
     display: block;
+    color: #10b981;
     transition: 0.3s;
 }
 
 .usp-card:hover i {
-    color: #ff443e;
-    /* Branding red popped on hover */
-    transform: scale(1.2) rotate(5deg);
+    color: #34d399;
+    transform: scale(1.15);
 }
 
 .usp-card h3 {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    color: #ffffff;
 }
 
 .usp-card p {

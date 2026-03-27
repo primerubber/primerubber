@@ -9,8 +9,8 @@ const products = [
     "image": "images/ribbed_matting.png",
     "images": [
       "images/ribbed_matting.png",
-      "images/ribbed_matting.png",
-      "images/ribbed_matting.png"
+      "images/broad_ribbed_mat.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Material": "Premium SBR Rubber",
@@ -37,8 +37,8 @@ const products = [
     "image": "images/nitrile_mat.png",
     "images": [
       "images/nitrile_mat.png",
-      "images/nitrile_mat.png",
-      "images/nitrile_mat.png"
+      "images/oil_nitrile.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Material": "Nitrile Rubber",
@@ -64,8 +64,8 @@ const products = [
     "image": "images/ribbed_matting.png",
     "images": [
       "images/ribbed_matting.png",
-      "images/ribbed_matting.png",
-      "images/ribbed_matting.png"
+      "images/slider_matting.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Type": "Ribbed Roll",
@@ -91,8 +91,8 @@ const products = [
     "image": "images/ribbed_matting.png",
     "images": [
       "images/ribbed_matting.png",
-      "images/ribbed_matting.png",
-      "images/ribbed_matting.png"
+      "images/broad_ribbed_mat.png",
+      "images/slider_matting.png"
     ],
     "specs": {
       "Pattern": "Fine Ribbed",
@@ -118,8 +118,8 @@ const products = [
     "image": "images/adhesive.png",
     "images": [
       "images/adhesive.png",
-      "images/adhesive.png",
-      "images/adhesive.png"
+      "images/tech_closeup.png",
+      "images/slider_flooring.png"
     ],
     "specs": {
       "Application": "Indoor",
@@ -145,8 +145,8 @@ const products = [
     "image": "images/slider_matting.png",
     "images": [
       "images/slider_matting.png",
-      "images/slider_matting.png",
-      "images/slider_matting.png"
+      "images/ribbed_matting.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Surface": "Plain/Smooth",
@@ -172,8 +172,8 @@ const products = [
     "image": "images/barrier_runner.png",
     "images": [
       "images/barrier_runner.png",
-      "images/barrier_runner.png",
-      "images/barrier_runner.png"
+      "images/deluxe_entrance.png",
+      "images/kitchen_mat.png"
     ],
     "specs": {
       "Surface": "Dual-Level",
@@ -199,8 +199,8 @@ const products = [
     "image": "images/kitchen_mat.png",
     "images": [
       "images/kitchen_mat.png",
-      "images/kitchen_mat.png",
-      "images/kitchen_mat.png"
+      "images/barrier_runner.png",
+      "images/deluxe_entrance.png"
     ],
     "specs": {
       "Backing": "Non-Slip Rubber",
@@ -226,8 +226,8 @@ const products = [
     "image": "images/deluxe_entrance.png",
     "images": [
       "images/deluxe_entrance.png",
-      "images/deluxe_entrance.png",
-      "images/deluxe_entrance.png"
+      "images/barrier_runner.png",
+      "images/inspection_premium.png"
     ],
     "specs": {
       "Top Material": "Polypropylene",
@@ -253,8 +253,8 @@ const products = [
     "image": "images/slider_matting.png",
     "images": [
       "images/slider_matting.png",
-      "images/slider_matting.png",
-      "images/slider_matting.png"
+      "images/broad_ribbed_mat.png",
+      "images/ribbed_matting.png"
     ],
     "specs": {
       "Surface": "Smooth (Both Sides)",
@@ -280,8 +280,8 @@ const products = [
     "image": "images/broad_ribbed_mat.png",
     "images": [
       "images/broad_ribbed_mat.png",
-      "images/broad_ribbed_mat.png",
-      "images/broad_ribbed_mat.png"
+      "images/ribbed_matting.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Pattern": "Broad Ribbed",
@@ -307,8 +307,8 @@ const products = [
     "image": "images/broad_ribbed_mat.png",
     "images": [
       "images/broad_ribbed_mat.png",
-      "images/broad_ribbed_mat.png",
-      "images/broad_ribbed_mat.png"
+      "images/stable_mat.png",
+      "images/kennel_dot.png"
     ],
     "specs": {
       "Material": "NR/SBR Rubber",
@@ -334,8 +334,8 @@ const products = [
     "image": "images/heavy_duty_sbr.png",
     "images": [
       "images/heavy_duty_sbr.png",
-      "images/heavy_duty_sbr.png",
-      "images/heavy_duty_sbr.png"
+      "images/reinforced_sbr.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Material": "NR/SBR Blend",
@@ -361,8 +361,8 @@ const products = [
     "image": "images/oil_nitrile.png",
     "images": [
       "images/oil_nitrile.png",
-      "images/oil_nitrile.png",
-      "images/oil_nitrile.png"
+      "images/nitrile_mat.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Material": "Premium Nitrile Blend",
@@ -388,8 +388,8 @@ const products = [
     "image": "images/synthetic_sheet.png",
     "images": [
       "images/synthetic_sheet.png",
-      "images/synthetic_sheet.png",
-      "images/synthetic_sheet.png"
+      "images/heavy_duty_sbr.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Material": "Synthetic Rubber",
@@ -415,8 +415,8 @@ const products = [
     "image": "images/heavy_duty_sbr.png",
     "images": [
       "images/heavy_duty_sbr.png",
-      "images/heavy_duty_sbr.png",
-      "images/heavy_duty_sbr.png"
+      "images/synthetic_sheet.png",
+      "images/reinforced_sbr.png"
     ],
     "specs": {
       "Material": "Natural Rubber",
@@ -442,8 +442,8 @@ const products = [
     "image": "images/neoprene_sheet.png",
     "images": [
       "images/neoprene_sheet.png",
-      "images/neoprene_sheet.png",
-      "images/neoprene_sheet.png"
+      "images/synthetic_sheet.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Material": "Neoprene (CR)",
@@ -469,8 +469,8 @@ const products = [
     "image": "images/reinforced_sbr.png",
     "images": [
       "images/reinforced_sbr.png",
-      "images/reinforced_sbr.png",
-      "images/reinforced_sbr.png"
+      "images/heavy_duty_sbr.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Material": "SBR with Fabric Insert",
@@ -496,8 +496,8 @@ const products = [
     "image": "images/slider_sheet.png",
     "images": [
       "images/slider_sheet.png",
-      "images/slider_sheet.png",
-      "images/slider_sheet.png"
+      "images/sound_deadening.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Material": "Commercial Rubber",
@@ -523,8 +523,8 @@ const products = [
     "image": "images/sound_deadening.png",
     "images": [
       "images/sound_deadening.png",
-      "images/sound_deadening.png",
-      "images/sound_deadening.png"
+      "images/slider_sheet.png",
+      "images/neoprene_sheet.png"
     ],
     "specs": {
       "Effect": "Acoustic Insulation",
@@ -550,8 +550,8 @@ const products = [
     "image": "images/slider_flooring.png",
     "images": [
       "images/slider_flooring.png",
-      "images/slider_flooring.png",
-      "images/slider_flooring.png"
+      "images/diamond_tread.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Material": "Industrial Vinyl",
@@ -574,8 +574,8 @@ const products = [
     "image": "images/brown_chippings.png",
     "images": [
       "images/brown_chippings.png",
-      "images/brown_chippings.png",
-      "images/brown_chippings.png"
+      "images/bulk_chippings.png",
+      "images/green_chippings.png"
     ],
     "specs": {
       "Material": "Recycled Rubber",
@@ -598,8 +598,8 @@ const products = [
     "image": "images/diamond_tread.png",
     "images": [
       "images/diamond_tread.png",
-      "images/diamond_tread.png",
-      "images/diamond_tread.png"
+      "images/slider_flooring.png",
+      "images/tech_closeup.png"
     ],
     "specs": {
       "Pattern": "Diamond Tread",
@@ -622,8 +622,8 @@ const products = [
     "image": "images/diamond_tread.png",
     "images": [
       "images/diamond_tread.png",
-      "images/diamond_tread.png",
-      "images/diamond_tread.png"
+      "images/kennel_dot.png",
+      "images/slider_flooring.png"
     ],
     "specs": {
       "Durability": "Ultra",
@@ -646,8 +646,8 @@ const products = [
     "image": "images/stable_mat.png",
     "images": [
       "images/stable_mat.png",
-      "images/stable_mat.png",
-      "images/stable_mat.png"
+      "images/kennel_dot.png",
+      "images/broad_ribbed_mat.png"
     ],
     "specs": {
       "Application": "Kennels, Pets",
@@ -670,8 +670,8 @@ const products = [
     "image": "images/kennel_dot.png",
     "images": [
       "images/kennel_dot.png",
-      "images/kennel_dot.png",
-      "images/kennel_dot.png"
+      "images/stable_mat.png",
+      "images/diamond_tread.png"
     ],
     "specs": {
       "Pattern": "Round Dot",
@@ -694,8 +694,8 @@ const products = [
     "image": "images/slate_grey_chippings.png",
     "images": [
       "images/slate_grey_chippings.png",
-      "images/slate_grey_chippings.png",
-      "images/slate_grey_chippings.png"
+      "images/bulk_chippings.png",
+      "images/brown_chippings.png"
     ],
     "specs": {
       "Color": "Slate Grey",
@@ -718,8 +718,8 @@ const products = [
     "image": "images/green_chippings.png",
     "images": [
       "images/green_chippings.png",
-      "images/green_chippings.png",
-      "images/green_chippings.png"
+      "images/slate_grey_chippings.png",
+      "images/bulk_chippings.png"
     ],
     "specs": {
       "Color": "Moss Green",
@@ -742,8 +742,8 @@ const products = [
     "image": "images/bulk_chippings.png",
     "images": [
       "images/bulk_chippings.png",
-      "images/bulk_chippings.png",
-      "images/bulk_chippings.png"
+      "images/brown_chippings.png",
+      "images/green_chippings.png"
     ],
     "specs": {
       "Size": "20mm",
@@ -766,8 +766,8 @@ const products = [
     "image": "images/tarp_silver.png",
     "images": [
       "images/tarp_silver.png",
-      "images/tarp_silver.png",
-      "images/tarp_silver.png"
+      "images/slider_tarpaulin.png",
+      "images/pvc_curtain.png"
     ],
     "specs": {
       "Weight": "140gsm",
@@ -790,8 +790,8 @@ const products = [
     "image": "images/slider_tarpaulin.png",
     "images": [
       "images/slider_tarpaulin.png",
-      "images/slider_tarpaulin.png",
-      "images/slider_tarpaulin.png"
+      "images/tarp_silver.png",
+      "images/pvc_curtain.png"
     ],
     "specs": {
       "Weight": "200gsm",
@@ -814,8 +814,8 @@ const products = [
     "image": "images/tarp_silver.png",
     "images": [
       "images/tarp_silver.png",
-      "images/tarp_silver.png",
-      "images/tarp_silver.png"
+      "images/pvc_curtain.png",
+      "images/slider_tarpaulin.png"
     ],
     "specs": {
       "Color": "Black/Silver",
@@ -838,8 +838,8 @@ const products = [
     "image": "images/pvc_curtain.png",
     "images": [
       "images/pvc_curtain.png",
-      "images/pvc_curtain.png",
-      "images/pvc_curtain.png"
+      "images/slider_tarpaulin.png",
+      "images/tarp_silver.png"
     ],
     "specs": {
       "Material": "Clear PVC",

@@ -5,104 +5,235 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Prime Rubber UK</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        .page-header { 
-            background: linear-gradient(135deg, #020617 0%, #0f172a 100%); 
-            padding: 80px 0; 
-            text-align: center; 
-            border-bottom: 1px solid rgba(255,255,255,0.05); 
+        /* ===== CONTACT PAGE — DARK NAVY & GOLD REDESIGN ===== */
+
+        /* Hero Banner */
+        .contact-hero {
+            background: linear-gradient(135deg, #0a0f1e 0%, #111827 50%, #0d1b2a 100%);
+            padding: 90px 0 70px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
-        .page-header::before {
+        .contact-hero::before {
             content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 60%);
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(250,204,21,0.12) 0%, transparent 70%);
             pointer-events: none;
         }
-        .page-header h1 { 
-            font-size: 3.5rem; 
-            font-weight: 900; 
-            color: #ffffff; 
+        .contact-hero::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(250,204,21,0.4), transparent);
+        }
+        .contact-hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(250,204,21,0.12); border: 1px solid rgba(250,204,21,0.3);
+            color: #fbbf24; font-size: 0.8rem; font-weight: 700;
+            padding: 6px 18px; border-radius: 50px; letter-spacing: 2px;
+            text-transform: uppercase; margin-bottom: 20px;
+        }
+        .contact-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 900; color: #ffffff;
+            line-height: 1.1; position: relative; z-index: 1;
+            margin-bottom: 16px;
+        }
+        .contact-hero h1 span { color: #fbbf24; }
+        .contact-hero p {
+            color: #94a3b8; font-size: 1.1rem; max-width: 500px;
+            margin: 0 auto; line-height: 1.7;
+        }
+
+        /* Stats Strip */
+        .contact-stats {
+            background: #111827;
+            border-bottom: 1px solid rgba(250,204,21,0.15);
+        }
+        .contact-stats-inner {
+            display: flex; justify-content: center;
+            flex-wrap: wrap;
+        }
+        .c-stat {
+            padding: 22px 40px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.06);
+            flex: 1; min-width: 140px;
+        }
+        .c-stat:last-child { border-right: none; }
+        .c-stat-num { font-size: 1.7rem; font-weight: 900; color: #fbbf24; }
+        .c-stat-label { font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+        /* Main Layout */
+        .contact-section { background: #f1f5f9; padding: 80px 0; }
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 40px; align-items: start;
+        }
+
+        /* Left Panel — Info */
+        .contact-info-panel {
+            background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 20px;
+            overflow: hidden;
             position: relative;
-            z-index: 1;
         }
-        .contact-wrap { padding: 80px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-        
-        .contact-info-box {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0,0,0,0.03);
-            position: relative;
+        .contact-info-panel::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
         }
-        .contact-info-box h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 20px; color: #0f172a; }
-        
-        .info-item { 
-            display: flex; gap: 20px; margin-bottom: 30px; 
-            padding: 20px; border-radius: 12px; transition: 0.3s;
-            background: #f8fafc; border: 1px solid transparent;
+        .cip-top {
+            padding: 40px 36px 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
         }
-        .info-item:hover { background: #ffffff; border-color: rgba(16,185,129,0.2); box-shadow: 0 10px 30px -10px rgba(16,185,129,0.15); transform: translateY(-3px); }
-        .info-item i { 
-            font-size: 1.5rem; color: #10b981; 
-            background: rgba(16,185,129,0.1); 
-            width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; 
-            border-radius: 50%;
-            flex-shrink: 0;
+        .cip-top h2 { color: #fff; font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; }
+        .cip-top p { color: #64748b; font-size: 0.9rem; line-height: 1.6; }
+
+        .cip-items { padding: 24px 36px 30px; }
+        .cip-item {
+            display: flex; align-items: flex-start; gap: 18px;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .cip-item:last-child { border-bottom: none; }
+        .cip-icon {
+            width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem;
+            background: rgba(250,204,21,0.1);
+            color: #fbbf24;
+            border: 1px solid rgba(250,204,21,0.2);
+        }
+        .cip-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: #64748b; font-weight: 700; margin-bottom: 4px; }
+        .cip-value { color: #e2e8f0; font-weight: 600; font-size: 0.95rem; line-height: 1.5; }
+        .cip-value a { color: #fbbf24; text-decoration: none; }
+        .cip-value a:hover { text-decoration: underline; }
+
+        /* Hours */
+        .cip-hours {
+            margin: 0 36px 30px;
+            background: rgba(250,204,21,0.06);
+            border: 1px solid rgba(250,204,21,0.15);
+            border-radius: 12px; padding: 20px;
+        }
+        .cip-hours-title {
+            display: flex; align-items: center; gap: 8px;
+            color: #fbbf24; font-weight: 700; font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+        }
+        .hours-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .hours-row:last-child { border-bottom: none; }
+        .hours-row .days { color: #94a3b8; }
+        .hours-row .time { color: #e2e8f0; font-weight: 600; }
+
+        /* Social */
+        .cip-social { padding: 0 36px 36px; display: flex; gap: 12px; }
+        .social-icon {
+            width: 40px; height: 40px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+            color: #64748b; font-size: 0.9rem; text-decoration: none;
             transition: all 0.3s;
         }
-        .info-item:hover i { background: #10b981; color: #ffffff; box-shadow: 0 4px 15px rgba(16,185,129,0.3); }
-        .info-item h4 { font-weight: 800; margin-bottom: 5px; color: #1e293b; font-size: 1.1rem; }
-        .info-item p { color: #64748b; margin: 0; font-size: 0.95rem; line-height: 1.5; }
+        .social-icon:hover { background: rgba(250,204,21,0.15); color: #fbbf24; border-color: rgba(250,204,21,0.3); transform: translateY(-2px); }
 
-        .contact-form { 
-            background: #ffffff; padding: 45px; border-radius: 16px; 
-            box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.15); 
-            border: 1px solid rgba(16,185,129,0.1);
-            position: relative; overflow: hidden;
+        /* Right Panel — Form */
+        .contact-form-panel {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px -15px rgba(0,0,0,0.12);
         }
-        .contact-form::before {
-            content: ''; position: absolute; top:0; left:0; width: 100%; height: 5px;
-            background: linear-gradient(90deg, #10b981, #059669);
+        .cfp-head {
+            padding: 36px 40px 24px;
+            border-bottom: 1px solid #f1f5f9;
         }
-        .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; font-weight: 700; margin-bottom: 10px; color: #1e293b; font-size: 0.95rem; }
-        .form-group input, .form-group textarea { 
-            width: 100%; padding: 16px; border: 1px solid #e2e8f0; border-radius: 8px; 
-            font-family: inherit; background: #f8fafc; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 1rem; color: #0f172a;
+        .cfp-head h2 { font-size: 1.5rem; font-weight: 900; color: #0f172a; margin-bottom: 6px; }
+        .cfp-head p { color: #64748b; font-size: 0.9rem; }
+
+        .cfp-body { padding: 30px 40px 40px; }
+
+        .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { margin-bottom: 22px; }
+        .form-group label {
+            display: flex; align-items: center; gap: 6px;
+            font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 0.5px;
         }
-        .form-group input:focus, .form-group textarea:focus { 
-            outline: none; border-color: #10b981; background: #ffffff;
-            box-shadow: 0 0 0 4px rgba(16,185,129,0.1);
+        .form-group label i { color: #f59e0b; font-size: 0.75rem; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 14px 16px;
+            border: 2px solid #e2e8f0; border-radius: 10px;
+            font-family: inherit; font-size: 0.95rem; color: #0f172a;
+            background: #fafafa;
+            transition: all 0.25s ease; box-sizing: border-box;
         }
-        .form-group input::placeholder, .form-group textarea::placeholder { color: #94a3b8; }
-        
-        .submit-btn { 
-            background: linear-gradient(135deg, #10b981, #059669); color: #fff; border: none; 
-            padding: 16px 30px; border-radius: 8px; font-weight: 800; cursor: pointer; 
-            text-transform: uppercase; letter-spacing: 1px; width: 100%; transition: all 0.3s; 
-            box-shadow: 0 10px 20px -10px rgba(16,185,129,0.5); font-size: 1rem;
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none; border-color: #f59e0b;
+            background: #fff; box-shadow: 0 0 0 4px rgba(245,158,11,0.1);
         }
-        .submit-btn:hover { 
-            transform: translateY(-3px); box-shadow: 0 15px 25px -10px rgba(16,185,129,0.6); 
-            background: linear-gradient(135deg, #059669, #047857);
+        .form-group input::placeholder, .form-group textarea::placeholder { color: #cbd5e1; }
+        .form-group select { appearance: none; cursor: pointer; }
+        .form-group textarea { resize: vertical; min-height: 130px; }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #0f172a; border: none;
+            padding: 18px 30px; border-radius: 12px;
+            font-weight: 900; font-size: 1rem; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px -8px rgba(245,158,11,0.5);
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px -8px rgba(245,158,11,0.6);
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
         }
         .submit-btn:active { transform: translateY(-1px); }
 
+        .form-note {
+            text-align: center; margin-top: 14px;
+            font-size: 0.8rem; color: #94a3b8;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+        }
+        .form-note i { color: #10b981; }
+
+        /* Map Section */
+        .contact-map-section {
+            background: #0f172a;
+            padding: 70px 0;
+        }
+        .map-header { text-align: center; margin-bottom: 40px; }
+        .map-header h2 { color: #fff; font-size: 2rem; font-weight: 900; margin-bottom: 8px; }
+        .map-header p { color: #64748b; }
+        .map-embed {
+            border-radius: 16px; overflow: hidden;
+            border: 2px solid rgba(250,204,21,0.15);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            height: 350px; background: #1e293b;
+            display: flex; align-items: center; justify-content: center;
+            color: #64748b; font-size: 0.9rem; gap: 10px;
+        }
+
         @media (max-width: 991px) {
-            .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
-            .page-header { padding: 50px 0; }
-            .page-header h1 { font-size: 2.5rem; }
-            .contact-info-box, .contact-form { padding: 30px; }
+            .contact-layout { grid-template-columns: 1fr; }
+            .contact-hero { padding: 60px 0 50px; }
+            .cfp-body, .cfp-head { padding-left: 24px; padding-right: 24px; }
+            .cip-top, .cip-items, .cip-hours { padding-left: 24px; padding-right: 24px; }
+            .cip-social { padding-left: 24px; padding-right: 24px; }
+            .fg-row { grid-template-columns: 1fr; }
+            .c-stat { padding: 18px 20px; }
         }
     </style>
 </head>
@@ -112,7 +243,7 @@
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-inner">
-                <div class="top-links"><a href="/">Home</a><a href="#">FAQ</a><a href="/about">About Us</a><a href="/contact">Contact Us</a></div>
+                <div class="top-links"><a href="./index.html">Home</a><a href="#">FAQ</a><a href="./about.html">About Us</a><a href="./contact.html">Contact Us</a></div>
                 <div class="top-email"><i class="fas fa-envelope" style="color: var(--primary);"></i> Email Us: sales@primerubber.co.uk</div>
             </div>
         </div>
@@ -122,13 +253,13 @@
     <header class="header-main">
         <div class="container">
             <div class="header-row">
-                <a href="/" class="logo header-brand-logo">
-    <img src="/images/logo_main.png" alt="Prime Rubber UK" class="main-header-img">
+                <a href="./index.html" class="logo header-brand-logo">
+    <img src="./images/logo_main.png" alt="Prime Rubber UK" class="main-header-img">
 </a>
                 <div class="search-container"><input type="text" class="search-input" placeholder="Search products..."></div>
                 <div class="header-actions">
                     <div class="h-contact"><i class="fas fa-phone-alt"></i><div class="h-contact-text"><strong>01282 778899</strong></div></div>
-                    <a href="/basket" class="action-btn"><i class="fas fa-shopping-bag"></i><span class="h-cart-count">0</span></a>
+                    <a href="./basket.html" class="action-btn"><i class="fas fa-shopping-bag"></i><span class="h-cart-count">0</span></a>
                 </div>
             </div>
         </div>
@@ -139,7 +270,7 @@
         <div class="container nav-inner">
             <div class="nav-links">
                 <div class="nav-item">
-                    <a href="/" class="nav-link">Home</a>
+                    <a href="./index.html" class="nav-link">Home</a>
                 </div>
                 
                 <div class="nav-item">
@@ -154,8 +285,8 @@
                                         <h3>Rubber Matting</h3>
                                     </div>
                                     <div class="mega-prod-list">
-                                        <a href="/products/heavy-duty-ribbed-non-slip-rubber-matting-roll" class="mega-prod-item">
-                                            <div class="mega-img"><img src="/images/slider_matting.png" alt="Mat"></div>
+                                        <a href="./product.html?slug=heavy-duty-ribbed-non-slip-rubber-matting-roll" class="mega-prod-item">
+                                            <div class="mega-img"><img src="./images/ribbed_matting.png" alt="Ribbed Rubber Roll"></div>
                                             <span class="mega-title">Ribbed Rubber Roll</span>
                                         </a>
                                         <a href="product.html?id=rb-mat-1" class="mega-prod-item">
@@ -173,8 +304,8 @@
                                             <span class="mega-title">Entrance Matting</span>
                                             <span class="mega-count">5</span>
                                         </a>
-                                        <a href="/products/anti-fatigue-industrial-oil-resistant-nitrile-rubber-matting-rolls" class="mega-prod-item">
-                                            <div class="mega-img"><img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Mat"></div>
+                                        <a href="./product.html?slug=anti-fatigue-industrial-oil-resistant-nitrile-rubber-matting-rolls" class="mega-prod-item">
+                                            <div class="mega-img"><img src="./images/nitrile_mat.png" alt="Anti-Fatigue Mats"></div>
                                             <span class="mega-title">Anti-Fatigue Mats</span>
                                             <span class="mega-count">5</span>
                                         </a>
@@ -195,11 +326,11 @@
                                     <div class="mega-showcase-slider">
                                         <!-- Slide 1 -->
                                         <div class="showcase-slide">
-                                            <img src="/images/slider_matting.png" alt="Ribbed Roll">
+                                            <img src="./images/slider_matting.png" alt="Ribbed Roll">
                                             <div class="showcase-content">
                                                 <div class="showcase-tag">Best Seller</div>
                                                 <h3>Ribbed Rubber Roll</h3>
-                                                <a href="/products/heavy-duty-ribbed-non-slip-rubber-matting-roll" class="showcase-btn">Shop Now</a>
+                                                <a href="./product.html?slug=heavy-duty-ribbed-non-slip-rubber-matting-roll" class="showcase-btn">Shop Now</a>
                                             </div>
                                         </div>
                                         <!-- Slide 2 -->
@@ -226,7 +357,7 @@
                                             <div class="showcase-content">
                                                 <div class="showcase-tag">Worker Safety</div>
                                                 <h3>Anti-Fatigue Mats</h3>
-                                                <a href="/products/anti-fatigue-industrial-oil-resistant-nitrile-rubber-matting-rolls" class="showcase-btn">Learn More</a>
+                                                <a href="./product.html?slug=anti-fatigue-industrial-oil-resistant-nitrile-rubber-matting-rolls" class="showcase-btn">Learn More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -246,69 +377,150 @@
                     <a href="index.html#tarpaulins" class="nav-link">Tarpaulins</a>
                 </div>
                 <div class="nav-item">
-                    <a href="/about" class="nav-link">About Us</a>
+                    <a href="./about.html" class="nav-link">About Us</a>
                 </div>
                 <div class="nav-item">
-                    <a href="/contact" class="nav-link">Contact</a>
+                    <a href="./contact.html" class="nav-link">Contact</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="page-header"><div class="container"><h1>Get In Touch</h1></div></div>
+    <!-- CONTACT HERO -->
+    <div class="contact-hero">
+        <div class="container">
+            <div class="contact-hero-badge"><i class="fas fa-headset"></i> Expert Support Team</div>
+            <h1>Let's <span>Talk</span> Rubber</h1>
+            <p>Our UK-based specialists are ready to help with technical questions, custom quotes, and order support.</p>
+        </div>
+    </div>
 
-    <main class="container">
-        <div class="contact-wrap">
-            <div class="contact-info-box">
-                <h2>Contact Information</h2>
-                <p style="margin-bottom: 40px; color: #64748b;">Have a technical question or need a custom quote? Our specialists are here to help you find the right rubber solution.</p>
-                
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Address</h4>
-                        <p>Unit 42, Industrial Way, West Midlands, B1 1AA</p>
-                    </div>
+    <!-- STATS STRIP -->
+    <div class="contact-stats">
+        <div class="container">
+            <div class="contact-stats-inner">
+                <div class="c-stat">
+                    <div class="c-stat-num">4.9★</div>
+                    <div class="c-stat-label">Customer Rating</div>
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <h4>Phone</h4>
-                        <p>01282 778899</p>
-                    </div>
+                <div class="c-stat">
+                    <div class="c-stat-num">25,000+</div>
+                    <div class="c-stat-label">Happy Clients</div>
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p>sales@primerubber.co.uk</p>
-                    </div>
+                <div class="c-stat">
+                    <div class="c-stat-num">24hr</div>
+                    <div class="c-stat-label">Response Time</div>
                 </div>
-            </div>
-
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" placeholder="Your Name">
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" placeholder="email@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Subject</label>
-                        <input type="text" placeholder="How can we help?">
-                    </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea rows="5" placeholder="Tell us about your requirements..."></textarea>
-                    </div>
-                    <button type="button" class="submit-btn">Send Message</button>
-                </form>
+                <div class="c-stat">
+                    <div class="c-stat-num">UK</div>
+                    <div class="c-stat-label">Based Team</div>
+                </div>
             </div>
         </div>
-    </main>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-layout">
+
+                <!-- Left: Info Panel -->
+                <div class="contact-info-panel">
+                    <div class="cip-top">
+                        <h2>Contact Information</h2>
+                        <p>Reach us directly or fill in the form and we'll get back to you within 24 hours.</p>
+                    </div>
+                    <div class="cip-items">
+                        <div class="cip-item">
+                            <div class="cip-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <div class="cip-label">Address</div>
+                                <div class="cip-value">Unit 42, Industrial Way<br>West Midlands, B1 1AA</div>
+                            </div>
+                        </div>
+                        <div class="cip-item">
+                            <div class="cip-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <div class="cip-label">Phone</div>
+                                <div class="cip-value"><a href="tel:01282778899">01282 778899</a></div>
+                            </div>
+                        </div>
+                        <div class="cip-item">
+                            <div class="cip-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <div class="cip-label">Email</div>
+                                <div class="cip-value"><a href="mailto:sales@primerubber.co.uk">sales@primerubber.co.uk</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cip-hours">
+                        <div class="cip-hours-title"><i class="fas fa-clock"></i> Opening Hours</div>
+                        <div class="hours-row"><span class="days">Monday – Thursday</span><span class="time">8:00am – 4:40pm</span></div>
+                        <div class="hours-row"><span class="days">Friday</span><span class="time">8:00am – 4:00pm</span></div>
+                        <div class="hours-row"><span class="days">Saturday – Sunday</span><span class="time">Closed</span></div>
+                    </div>
+                    <div class="cip-social">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Right: Form Panel -->
+                <div class="contact-form-panel">
+                    <div class="cfp-head">
+                        <h2>Send Us a Message</h2>
+                        <p>Tell us about your project and we'll get back to you with the best solution.</p>
+                    </div>
+                    <div class="cfp-body">
+                        <div class="fg-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> First Name</label>
+                                <input type="text" placeholder="John">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Last Name</label>
+                                <input type="text" placeholder="Smith">
+                            </div>
+                        </div>
+                        <div class="fg-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-envelope"></i> Email</label>
+                                <input type="email" placeholder="john@company.co.uk">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-phone"></i> Phone</label>
+                                <input type="tel" placeholder="07700 000000">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-tag"></i> Enquiry Type</label>
+                            <select>
+                                <option value="" disabled selected>Select an option...</option>
+                                <option>Product Enquiry</option>
+                                <option>Custom Cutting Quote</option>
+                                <option>Bulk / Trade Order</option>
+                                <option>Delivery Query</option>
+                                <option>Returns & Refunds</option>
+                                <option>Technical Support</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment-dots"></i> Message</label>
+                            <textarea placeholder="Tell us about your requirements, dimensions needed, quantities, or any other details..."></textarea>
+                        </div>
+                        <button type="button" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        <div class="form-note"><i class="fas fa-shield-check"></i> Your information is secure and never shared with third parties.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 
     <!-- PRE-FOOTER TRUST BAR -->
@@ -386,33 +598,33 @@
         <div class="d-logo ups">UPS</div>
     </div>
 </div>
-<!-- Column 4: Links Grid -->
+                <!-- Column 4: Links Grid -->
                 <div class="footer-col">
+                    <h3>Quick Links</h3>
                     <div class="footer-links-grid">
                         <ul class="f-nav-links">
-                            <li><a href="/about">About</a></li>
-                            <li><a href="/contact">Contact</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Account</a></li>
+                            <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="./about.html"><i class="fas fa-users"></i> About Us</a></li>
+                            <li><a href="./contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                            <li><a href="./all-products.html"><i class="fas fa-th"></i> All Products</a></li>
                         </ul>
                         <ul class="f-nav-links">
-                            <li><a href="/delivery-returns">Delivery & Returns</a></li>
-                            <li><a href="/delivery-returns">Delivery & Returns Policies</a></li>
-                            <li><a href="/terms">Terms & Conditions</a></li>
-                            <li><a href="/privacy">Privacy Policy</a></li>
-                            <li><a href="/privacy">Cookie Policy</a></li>
-                            <li><a href="/privacy">Disclaimer</a></li>
+                            <li><a href="./delivery-returns.html"><i class="fas fa-truck"></i> Delivery & Returns</a></li>
+                            <li><a href="./terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
+                            <li><a href="./privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                            <li><a href="./privacy.html"><i class="fas fa-cookie-bite"></i> Cookie Policy</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </footer>
 
     <div class="bottom-bar">
     <div class="bottom-logo-block">
         <div class="footer-logo-capsule">
-            <img src="/images/logo_main.png" alt="Prime Rubber UK" class="main-footer-img">
+            <img src="./images/logo_main.png" alt="Prime Rubber UK" class="main-footer-img">
         </div>
     </div>
     <div class="bottom-content">
@@ -421,8 +633,8 @@
     </div>
 </div>
 
-    <script src="/products.js"></script>
-    <script src="/script.js"></script>
+    <script src="./products.js"></script>
+    <script src="./script.js"></script>
     
     <!-- Basket Notification Toast -->
 <div class="basket-notify" id="basketNotify">
@@ -431,7 +643,7 @@
     </div>
     <div class="notify-btns">
         <a href="#" onclick="this.parentElement.parentElement.classList.remove('active')" class="btn-basket-view">Continue Shopping</a>
-        <a href="/basket" class="btn-basket-go">Go to Basket</a>
+        <a href="./basket.html" class="btn-basket-go">Go to Basket</a>
     </div>
 </div>
     <!-- Prime Chat Drawer -->

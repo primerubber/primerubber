@@ -40,14 +40,13 @@ function showSlide(index) {
     slides[currentSlideIndex].classList.add('active');
     dots[currentSlideIndex].classList.add('active');
 
-    // Update Dynamic Background
     if (heroSec) {
-        // We update a CSS variable to affect the pseudo-element
         heroSec.style.setProperty('--hero-bg', `url('${heroImages[currentSlideIndex]}')`);
     }
 }
 
-function nextSlide() { showSlide(currentSlideIndex + 1); }
+// BUG FIX: nextSlide now calls resetTimer() to stay in sync with manual navigation
+function nextSlide() { showSlide(currentSlideIndex + 1); resetTimer(); }
 function prevSlide() { showSlide(currentSlideIndex - 1); resetTimer(); }
 function setSlide(index) { showSlide(index); resetTimer(); }
 
@@ -58,7 +57,7 @@ function resetTimer() {
 
 if (slides.length > 0) {
     sliderTimer = setInterval(nextSlide, 5000);
-    showSlide(0); // Initialize background
+    showSlide(0);
 }
 
 
@@ -71,11 +70,10 @@ function updateCartCount() {
 
     countElements.forEach(el => {
         el.textContent = totalItems;
-        // If count is 0, hide the dot entirely
         if (totalItems === 0) {
             el.style.display = 'none';
         } else {
-            el.style.display = 'flex'; // Or whatever its original display is
+            el.style.display = 'flex';
         }
     });
 }
@@ -122,16 +120,9 @@ function renderProducts() {
     const productGrid = document.querySelector('.product-grid');
     if (!productGrid) return;
 
-    // Categories requested by the user
     const targetCategories = ["Rubber Matting", "Rubber Flooring", "Rubber Sheet", "Tarpaulins", "Entrance Matting", "Outdoor Matting"];
-
-    // Filter products from target categories
     const filteredProducts = products.filter(p => targetCategories.includes(p.category));
-
-    // Shuffle the array to ensure products change on every refresh
     const shuffled = [...filteredProducts].sort(() => 0.5 - Math.random());
-
-    // Display 10 random products in the trending grid
     const selected = shuffled.slice(0, 10);
 
     productGrid.innerHTML = selected.map(product => `
@@ -157,10 +148,7 @@ function renderTicker() {
     const tickerTrack = document.getElementById('productTicker');
     if (!tickerTrack) return;
 
-    // Use a subset of products for the ticker
     const tickerProducts = products.filter(p => ["Rubber Matting", "Rubber Sheet", "Rubber Flooring", "Tarpaulins"].includes(p.category));
-
-    // Duplicate the array for a seamless loop
     const displayArray = [...tickerProducts, ...tickerProducts];
 
     tickerTrack.innerHTML = displayArray.map(p => `
@@ -189,20 +177,17 @@ function initProductPage() {
 
     if (!product) return;
 
-    // Update Titles, Breadcrumbs and Text
     document.title = `${product.title} | Prime Rubber`;
     const breadcrumb = document.getElementById('breadcrumb');
     if (breadcrumb) {
         breadcrumb.innerHTML = `<a href="./">Home</a> / <a href="./category.html?type=${product.category.toLowerCase().replace(/ /g, '-')}">${product.category}</a> / ${product.title}`;
     }
 
-    // Update Title & Price
     const topTitle = document.getElementById('topProdTitle');
     const priceBig = document.getElementById('pPriceBig');
     if (topTitle) topTitle.textContent = product.title;
     if (priceBig) priceBig.textContent = product.price;
 
-    // Update Main Image
     const img = document.getElementById('mainProductImg');
     if (img) {
         img.src = product.image;
@@ -210,7 +195,6 @@ function initProductPage() {
         img.decoding = "async";
     }
 
-    // Setup Gallery
     const thumbGallery = document.getElementById('thumbGallery');
     if (thumbGallery && product.images) {
         thumbGallery.innerHTML = product.images.map((src, i) => `
@@ -220,7 +204,6 @@ function initProductPage() {
         `).join('');
     }
 
-    // Render Specs
     const specContainer = document.querySelector('.p-specs');
     if (specContainer && product.specs) {
         specContainer.innerHTML = Object.entries(product.specs).map(([label, value]) => `
@@ -231,7 +214,6 @@ function initProductPage() {
         `).join('');
     }
 
-    // Handle Product Size/Variants
     const variantSelect = document.getElementById('variantSelect');
     if (variantSelect && product.specs) {
         const sizeDisplay = product.specs.Size || product.specs.Dimensions || "Standard Size";
@@ -240,7 +222,6 @@ function initProductPage() {
         variantSelect.innerHTML = `<option>${colorDisplay}${sizeDisplay}${thickness} - ${product.price} Inc. VAT</option>`;
     }
 
-    // Update Description Accordion
     const descContent = document.getElementById('productDesc');
     if (descContent) {
         descContent.innerHTML = `
@@ -256,7 +237,6 @@ function initProductPage() {
         `;
     }
 
-    // Render Related Products
     const relatedGrid = document.getElementById('relatedGrid');
     if (relatedGrid) {
         const related = products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
@@ -274,11 +254,11 @@ function initProductPage() {
                 </div>
             `).join('');
         } else {
-            document.querySelector('.related-section').style.display = 'none';
+            const relSec = document.querySelector('.related-section');
+            if (relSec) relSec.style.display = 'none';
         }
     }
 
-    // Add to Cart handler
     const addBtn = document.getElementById('addToCartBtn');
     if (addBtn) {
         addBtn.onclick = () => {
@@ -288,7 +268,6 @@ function initProductPage() {
         };
     }
 
-    // Update Related Links
     const moreFrom = document.querySelector('.z-more-from');
     if (moreFrom) {
         const h3 = moreFrom.querySelector('h3');
@@ -297,7 +276,8 @@ function initProductPage() {
         if (a) a.href = `/category/${product.category.toLowerCase().replace(/ /g, '-')}`;
     }
 
-    // --- 2026 SEO: Dynamic JSON-LD Schema ---
+    // BUG FIX: use replaceAll to handle prices with multiple commas e.g. £1,968,000
+    const cleanPrice = product.price.replace('£', '').replaceAll(',', '');
     const schemaData = {
         "@context": "https://schema.org/",
         "@type": "Product",
@@ -305,21 +285,15 @@ function initProductPage() {
         "image": [product.image],
         "description": product.description,
         "sku": product.id,
-        "brand": {
-            "@type": "Brand",
-            "name": "Prime Rubber UK"
-        },
+        "brand": { "@type": "Brand", "name": "Prime Rubber UK" },
         "offers": {
             "@type": "Offer",
             "url": window.location.href,
             "priceCurrency": "GBP",
-            "price": product.price.replace('£', '').replace(',', ''),
+            "price": cleanPrice,
             "availability": "https://schema.org/InStock",
             "itemCondition": "https://schema.org/NewCondition",
-            "seller": {
-                "@type": "Organization",
-                "name": "Prime Rubber UK"
-            }
+            "seller": { "@type": "Organization", "name": "Prime Rubber UK" }
         }
     };
     const schemaScript = document.createElement('script');
@@ -349,12 +323,15 @@ function closeLightbox() {
     document.body.style.overflow = 'auto';
 }
 
+// BUG FIX: accordion now correctly checks computed style for initial state (empty string case)
 function toggleAccordion() {
     const acc = document.querySelector('.desc-accordion');
     const content = document.getElementById('productDesc');
     const icon = acc.querySelector('.arrow i');
 
-    if (content.style.display === 'none') {
+    const isHidden = content.style.display === 'none' || getComputedStyle(content).display === 'none';
+
+    if (isHidden) {
         content.style.display = 'block';
         icon.className = 'fas fa-chevron-up';
     } else {
@@ -373,14 +350,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Update Active State
             btns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
             const mm = btn.getAttribute('data-mm');
-
-            // Update Visuals (Scale factor: 1mm = 1px high, but we use a multiplier for visibility)
-            // Initial height was 3px for 3mm.
             sample.style.height = `${mm}px`;
             display.innerText = `${mm}MM`;
         });
@@ -433,7 +405,6 @@ function handleChat() {
     addUserMsg(text);
     input.value = '';
 
-    // Simulated AI Processing
     setTimeout(() => {
         const response = generateAIResponse(text.toLowerCase());
         addBotMsg(response);
@@ -443,7 +414,6 @@ function handleChat() {
 function generateAIResponse(query) {
     let matchedProducts = [];
 
-    // Human-like response prefix
     const stockPrefixes = [
         "Let me just check our current stock levels for you... Ah, yes! We've got it.",
         "That's a very common requirement. Honestly, for quality, we're the best in the UK.",
@@ -463,13 +433,14 @@ function generateAIResponse(query) {
     }
 
     if (matchedProducts.length > 0) {
+        // BUG FIX: chat links now consistently use ?slug= instead of ?id=
         let resp = `${prefix} For ${matchedProducts[0].category}, I'd personally recommend our **${matchedProducts[0].title}**. It's our most durable option and honestly, clients love it.<br><br>`;
         resp += matchedProducts.map(p => `
             <div style="background:#fff; border:1px solid #ddd; padding:10px; border-radius:10px; margin-top:10px;">
                 <img src="${p.image}" style="width:50px; height:50px; float:left; margin-right:10px; object-fit:cover; border-radius:5px;">
                 <div style="font-weight:bold; font-size:0.8rem;">${p.title}</div>
                 <div style="color:#059669; font-weight:bold; font-size:0.9rem;">${p.price}</div>
-                <a href="product.html?id=${p.id}" style="font-size:0.75rem; color:var(--primary); font-weight:800; text-decoration:underline;">Grab it now →</a>
+                <a href="product.html?slug=${p.slug}" style="font-size:0.75rem; color:var(--primary); font-weight:800; text-decoration:underline;">Grab it now →</a>
             </div>
         `).join('');
         resp += "<br>If you order now, I can ensure it gets on tomorrow's dispatch. Should I help you checkout with one of these?";
@@ -481,12 +452,10 @@ function generateAIResponse(query) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Global Search Header Hook
     const globalSearchInput = document.querySelector('.search-input');
     const globalSearchBtn = document.querySelector('.search-btn');
     const searchContainer = document.querySelector('.search-container');
 
-    // Create & Inject Suggestions Dropdown
     const suggestionBox = document.createElement('div');
     suggestionBox.className = 'search-suggestions';
     if (searchContainer) searchContainer.appendChild(suggestionBox);
@@ -504,7 +473,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const q = query.toLowerCase().trim();
 
         if (q === '') {
-            // Show Popular Searches
             suggestionBox.innerHTML = `
                 <span class="section-title">Popular Searches</span>
                 <div class="suggestion-pills">
@@ -512,7 +480,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
         } else {
-            // Show Live Results
             const filtered = products.filter(p =>
                 p.title.toLowerCase().includes(q) ||
                 p.category.toLowerCase().includes(q)
@@ -526,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${filtered.length > 0 ? `
                     <div class="suggestion-list">
                         ${filtered.map(p => `
-                            <a href="product.html?id=${p.id}" class="suggestion-item">
+                            <a href="product.html?slug=${p.slug}" class="suggestion-item">
                                 <div class="suggestion-thumb"><img src="${p.image}" alt=""></div>
                                 <div class="suggestion-info">
                                     <span class="suggestion-title">${p.title}</span>
@@ -563,7 +530,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('productTicker')) renderTicker();
     if (window.location.pathname.includes('product.html')) initProductPage();
 
-    // Attach Chat Trigger
     const chatBtn = document.querySelector('.chat-cta');
     const sendBtn = document.querySelector('.chat-send-btn');
     const chatInput = document.getElementById('chatInput');
@@ -601,11 +567,11 @@ document.addEventListener('mousemove', (e) => {
     });
 });
 
-console.log('%c PRIME RUBBER V2.0 🚀 Initialized ', 'background: #059669; color: #fff; font-weight: bold; padding: 5px; border-radius: 5px;');
+console.log('%c PRIME RUBBER V2.1 🚀 Initialized ', 'background: #059669; color: #fff; font-weight: bold; padding: 5px; border-radius: 5px;');
 
 // --- Premium Cookie Consent System ---
 function initCookieConsent() {
-    if (localStorage.getItem('prime_cookie_consent')) return; // Already answered
+    if (localStorage.getItem('prime_cookie_consent')) return;
 
     const overlay = document.createElement('div');
     overlay.className = 'cookie-overlay';
@@ -654,7 +620,6 @@ function initCookieConsent() {
     `;
     document.body.appendChild(overlay);
 
-    // Show it with a slight delay
     setTimeout(() => overlay.classList.add('active'), 1500);
 
     const saveBtn = overlay.querySelector('#cookieSaveBtn');
@@ -684,10 +649,8 @@ function initCookieConsent() {
     };
 }
 
-// Ensure it runs after DOM is loaded
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initCookieConsent);
 } else {
-    // If DOM is already loaded
     setTimeout(initCookieConsent, 500);
 }

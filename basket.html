@@ -237,24 +237,26 @@
                         <div class="d-logo ups">UPS</div>
                     </div>
                 </div>
-                <!-- Column 4: Links Grid -->
+                                <!-- Column 4: Links Grid -->
                 <div class="footer-col">
+                    <h3>Quick Links</h3>
                     <div class="footer-links-grid">
                         <ul class="f-nav-links">
-                            <li><a href="./about.html">About</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
-</ul>
+                            <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="./about.html"><i class="fas fa-users"></i> About Us</a></li>
+                            <li><a href="./contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                            <li><a href="./all-products.html"><i class="fas fa-th"></i> All Products</a></li>
+                        </ul>
                         <ul class="f-nav-links">
-                            <li><a href="./delivery-returns.html">Delivery & Returns</a></li>
-                            <li><a href="./delivery-returns.html">Delivery & Returns Policies</a></li>
-                            <li><a href="./terms.html">Terms & Conditions</a></li>
-                            <li><a href="./privacy.html">Privacy Policy</a></li>
-                            <li><a href="./privacy.html">Cookie Policy</a></li>
-                            <li><a href="./privacy.html">Disclaimer</a></li>
+                            <li><a href="./delivery-returns.html"><i class="fas fa-truck"></i> Delivery & Returns</a></li>
+                            <li><a href="./terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
+                            <li><a href="./privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                            <li><a href="./privacy.html"><i class="fas fa-cookie-bite"></i> Cookie Policy</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </footer>
 
@@ -303,12 +305,13 @@
                 </div>
             `).join('');
 
-            const subtotal = basketCart.reduce((sum, item) => sum + (parseFloat(item.price.replace('£', '').replace(',', '')) * item.quantity), 0);
-            const vat = subtotal * 0.2;
-            const total = subtotal; // Price already inc vat in data
+            // BUG FIX: prices are already inc. VAT — calculate ex-VAT and VAT amount correctly
+            const total = basketCart.reduce((sum, item) => sum + (parseFloat(item.price.replace('£', '').replaceAll(',', '')) * item.quantity), 0);
+            const exVat = total / 1.2;
+            const vat = total - exVat;
 
             summary.innerHTML = `
-                <div class="summary-row"><span>Subtotal (Ex. VAT)</span><span>£${(subtotal * 0.8).toFixed(2)}</span></div>
+                <div class="summary-row"><span>Subtotal (Ex. VAT)</span><span>£${exVat.toFixed(2)}</span></div>
                 <div class="summary-row"><span>VAT (20%)</span><span>£${vat.toFixed(2)}</span></div>
                 <div class="summary-row"><span>Shipping</span><span>FREE</span></div>
                 <div class="summary-row summary-total"><span>Total (Inc. VAT)</span><span>£${total.toFixed(2)}</span></div>
